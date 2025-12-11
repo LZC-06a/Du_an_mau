@@ -23,8 +23,7 @@ define('PATH_CONTROLLER_CLIENT',       PATH_ROOT . 'controllers/client/');
 
 define('PATH_MODEL',            PATH_ROOT . 'models/');
 
-// Tài khoản admin demo (có thể thay bằng dữ liệu từ CSDL)
-define('ADMIN_EMAIL', 'admin@example.com');
+define('ADMIN_EMAIL', 'admin@gmail.com');
 define('ADMIN_PASSWORD', '123456');
 
 define('DB_HOST',     'localhost');

@@ -38,7 +38,7 @@
             </li>
             <?php if (!empty($_SESSION['admin'])): ?>
                 <li class="nav-item">
-                    <span class="nav-link text-uppercase">Xin chào, <?= htmlspecialchars($_SESSION['admin']['email']) ?></span>
+                    <span class="nav-link text-uppercase"><?= htmlspecialchars($_SESSION['admin']['email']) ?></span>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-uppercase text-danger" href="<?= BASE_URL_ADMIN . '&action=logout' ?>"><b>Đăng xuất</b></a>
@@ -59,7 +59,6 @@
         <?php if (!empty($_SESSION['error'])): ?>
             <div class="alert alert-danger"><?php echo $_SESSION['error']; unset($_SESSION['error']); ?></div>
         <?php endif; ?>
-
         <div class="row">
             <?php
             if (isset($view)) {

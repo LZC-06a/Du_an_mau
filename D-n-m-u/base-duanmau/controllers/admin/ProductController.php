@@ -58,7 +58,8 @@ class ProductController
             //Lưu file vào thư mục chỉ định, và thay thế image =  đường dẫn ảnh
             $data["image"] = upload_file('products', $data["image"]);
         }else{
-            $data["image"] = null;
+            // Cột img NOT NULL trong DB -> lưu chuỗi rỗng nếu không có file
+            $data["image"] = '';
         }
         // Lưu giá vào CSDL
         $this->productModel->insert($data);

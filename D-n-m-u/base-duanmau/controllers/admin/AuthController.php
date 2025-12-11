@@ -4,12 +4,10 @@ class AuthController
 {
     public function showLogin()
     {
-        // Nếu đã đăng nhập thì chuyển về dashboard
         if (!empty($_SESSION['admin'])) {
             header('Location:' . BASE_URL_ADMIN);
             exit();
         }
-
         $view = 'auth/login';
         $title = 'Đăng nhập admin';
         require_once PATH_VIEW_ADMIN_MAIN;
@@ -19,7 +17,6 @@ class AuthController
     {
         $email = $_POST['email'] ?? '';
         $password = $_POST['password'] ?? '';
-
         if ($email === ADMIN_EMAIL && $password === ADMIN_PASSWORD) {
             $_SESSION['admin'] = [
                 'email' => $email,
@@ -28,12 +25,10 @@ class AuthController
             header('Location:' . BASE_URL_ADMIN);
             exit();
         }
-
         $_SESSION['error'] = 'Email hoặc mật khẩu không đúng';
         header('Location:' . BASE_URL_ADMIN . '&action=login');
         exit();
     }
-
     public function logout()
     {
         unset($_SESSION['admin']);

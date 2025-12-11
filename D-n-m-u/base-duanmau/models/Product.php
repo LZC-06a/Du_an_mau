@@ -2,8 +2,9 @@
     class Product extends BaseModel {
 
         public function getAll() {
+            // Bảng danh mục là `category`
             $sql = "SELECT p.*, cat.name as cat_name FROM `products` as p
-             JOIN categories as cat 
+             JOIN category as cat 
              ON p.category_id = cat.id ORDER BY p.id DESC;";
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute();
@@ -39,6 +40,7 @@
             $stmt->bindParam(":description",$data["description"]);
             $stmt->bindParam(":price",$data["price"]);
             $stmt->bindParam(":quantity",$data["quantity"]);
+            // Cột `img` trong DB là NOT NULL, dùng chuỗi rỗng nếu chưa upload
             $stmt->bindParam(":image",$data["image"]);
 
             $stmt->execute();
